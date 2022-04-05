@@ -1,0 +1,74 @@
+<head>
+    <link rel="stylesheet" href="main.css">
+</head>
+<body>
+    <nav id="navbar">
+        <header>Emmet Documentation</header>
+        <ul>
+        <li><a href="#Introduction" class="nav-link">Introduction</a></li>
+        <li><a href="#Nesting_operators" class="nav-link">Nesting operators</a></li>
+        <li><a href="#Child" class="nav-link">Child</a></li>
+        <li><a href="#Sibling" class="nav-link">Sibling</a></li>
+        <li><a href="#Climb-up" class="nav-link">Climb-up</a></li>
+        </ul>
+    </nav>
+    <main id="main-doc">
+        <section class="main-section" id="Introduction">
+            <header>Introduction</header>
+            <p>Emmet is a web-developer’s toolkit that can greatly improve your HTML & CSS workflow</p>
+            <p>Basically, most text editors out there allow you to store and re-use commonly used code chunks, called “snippets”. While snippets are a good way to boost your productivity, all implementations have common pitfalls: you have to define the snippet first and you can’t extend them in runtime.</p>
+            <li>Emmet takes the snippets idea to a whole new level: you can type CSS-like expressions that can be dynamically parsed, and produce output depending on what you type in the abbreviation.
+            <li> Emmet is developed and optimised for web-developers whose workflow depends on HTML/XML and CSS, but can be used with programming languages too.
+            <li>Start learning Emmet with the <a href="#nesting-operators">abbreviation syntax</a> and available actions.
+        </section>
+        <section class="main-section" id="Nesting_operators">
+            <header>Nesting operators</header>
+            <p>Nesting operators are used to position abbreviation elements inside generated tree: whether it should be placed inside or near the context element.</p>
+            <li>Emmet uses syntax similar to CSS selectors for describing elements’ positions inside generated tree and elements’ attributes.
+            <li>You can use elements’ names like div or p to generate HTML tags. Emmet doesn’t have a predefined set of available tag names, you can write any word and transform it into a tag: div → <code>&lt;div>&lt;/div></code>, foo → <code>&lt;foo>&lt;/foo></code> and so on.
+        </section>
+        <section class="main-section" id="Child">
+            <header>Child</header>
+            <p>You can use > operator to nest elements inside each other:</p>
+            
+            <pre><code><span class="erlang"><span class="keyword">div</span>&gt;ul&gt;li</span>
+            </code></pre>
+            <p>...will produce</p>
+            <pre>
+                <code>
+<span class="xml"><span class="tag">&lt;<span>div</span>&gt;</span>
+    <span class="tag">&lt;<span>ul</span>&gt;</span>
+        <span class="tag">&lt;<span>li</span>&gt;</span><span class="tag">&lt;/<span>li</span>&gt;</span>
+    <span class="tag">&lt;/<span>ul</span>&gt;</span>
+<span class="tag">&lt;/<span>div</span>&gt;</span></span>
+                </code>
+            </pre>
+            <code></code>
+        </section>
+        <section class="main-section" id="Sibling">
+            <header>Sibling</header>
+            <p>Use + operator to place elements near each other, on the same level:</p>
+            <pre><code><span class="erlang"><span class="keyword">div</span>+p+bq</span>
+            </code></pre>
+            <p>...will output</p>
+            <pre><code><span class="xml"><span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+<span class="tag">&lt;<span class="title">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="title">blockquote</span>&gt;</span></span>
+                </code></pre>
+        </section>
+        <section class="main-section" id="Climb-up">
+            <header>Climb-up</header>
+            <p>With ^ operator, you can climb one level up the tree and change context where following elements should appear:</p>
+            <pre><code><span class="erlang"><span class="keyword">div</span>+<span class="keyword">div</span>&gt;p&gt;span+em^bq</span>
+            </code></pre>
+            <p>...outputs to</p>
+            <pre><code><span class="xml"><span class="tag">&lt;<span class="title">div</span>&gt;</span><span class="tag">&lt;/<span class="title">div</span>&gt;</span>
+<span class="tag">&lt;<span class="title">div</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">p</span>&gt;</span><span class="tag">&lt;<span class="title">span</span>&gt;</span><span class="tag">&lt;/<span class="title">span</span>&gt;</span><span class="tag">&lt;<span class="title">em</span>&gt;</span><span class="tag">&lt;/<span class="title">em</span>&gt;</span><span class="tag">&lt;/<span class="title">p</span>&gt;</span>
+        <span class="tag">&lt;<span class="title">blockquote</span>&gt;</span><span class="tag">&lt;/<span class="title">blockquote</span>&gt;</span>
+<span class="tag">&lt;/<span class="title">div</span>&gt;</span></span>
+                </code></pre>
+            <p>You can use as many ^ operators as you like, each operator will move one level up</p>
+        </section>
+    </main>
+</body>
